@@ -1,3 +1,5 @@
+![ReproDossier](assets/ReproDossier_hero.png)
+
 # ReproDossier
 
 > For this build artifact, is the output bit-for-bit reproducible across independent evidence sources and attested without central authority?
