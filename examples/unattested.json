@@ -1,1 +1,10 @@
-{"input_id": "example-unattested", "evidence": [{"output_hash": "d" * 64, "source_id": "onlyone"}], "ledger": []}
+{
+  "input_id": "example-unattested",
+  "evidence": [
+    {
+      "output_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "source_id": "onlyone"
+    }
+  ],
+  "ledger": []
+}

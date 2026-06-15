@@ -1,1 +1,18 @@
-{"input_id": "example-repro", "evidence": [{"output_hash": "a" * 64, "source_id": "matrix"}, {"output_hash": "a" * 64, "source_id": "trustix"}, {"output_hash": "a" * 64, "source_id": "enclave"}], "ledger": []}
+{
+  "input_id": "example-repro",
+  "evidence": [
+    {
+      "output_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "source_id": "matrix"
+    },
+    {
+      "output_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "source_id": "trustix"
+    },
+    {
+      "output_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "source_id": "enclave"
+    }
+  ],
+  "ledger": []
+}

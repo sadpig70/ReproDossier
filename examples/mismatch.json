@@ -1,1 +1,14 @@
-{"input_id": "example-mismatch", "evidence": [{"output_hash": "b" * 64, "source_id": "matrix"}, {"output_hash": "c" * 64, "source_id": "trustix"}], "ledger": []}
+{
+  "input_id": "example-mismatch",
+  "evidence": [
+    {
+      "output_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "source_id": "matrix"
+    },
+    {
+      "output_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "source_id": "trustix"
+    }
+  ],
+  "ledger": []
+}

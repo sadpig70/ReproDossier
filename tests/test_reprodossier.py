@@ -30,20 +30,20 @@ class TestCore(unittest.TestCase):
         self.assertFalse(is_sha256("g" * 64))
 
     def test_reduce_reproducible(self):
-        claims = [{"output_hash": "x" * 64}] * 3
+        claims = [{"output_hash": "a" * 64}] * 3
         r = evaluate({"evidence": claims})
         self.assertEqual(r["verdict"], "reproducible")
         self.assertEqual(r["quorum"], 3)
         self.assertEqual(len(r["reasons"]), 0)
 
     def test_reduce_mismatch(self):
-        claims = [{"output_hash": "x" * 64}, {"output_hash": "y" * 64}]
+        claims = [{"output_hash": "a" * 64}, {"output_hash": "b" * 64}]
         r = evaluate({"evidence": claims})
         self.assertEqual(r["verdict"], "mismatch")
         self.assertTrue(any("hash_diff" in rr for rr in r["reasons"]))
 
     def test_reduce_unattested(self):
-        r = evaluate({"evidence": [{"output_hash": "x" * 64}]})
+        r = evaluate({"evidence": [{"output_hash": "a" * 64}]})
         self.assertEqual(r["verdict"], "unattested")
 
     def test_determinism_same_input(self):

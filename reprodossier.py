@@ -155,7 +155,12 @@ EXAMPLES = {
 }
 
 
-def cmd_sample() -> int:
+def cmd_sample(write: str | None = None) -> int:
+    if write:
+        out = pathlib.Path(write)
+        out.mkdir(parents=True, exist_ok=True)
+        for name, st in EXAMPLES.items():
+            (out / f"{name}.json").write_text(json.dumps(st, indent=2) + "\n", encoding="utf-8")
     for name, st in EXAMPLES.items():
         res = evaluate(st)
         print(f"[{name}] {res['verdict']} reasons={res['reasons']}")
@@ -182,7 +187,8 @@ def cmd_report(state_path: str) -> int:
 def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(prog="reprodossier", description="ReproDossier reproducibility attestation")
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("sample", help="Emit 3 example verdicts")
+    p_sample = sub.add_parser("sample", help="Emit 3 example verdicts")
+    p_sample.add_argument("--write", help="write example state JSON files into this directory")
     p_run = sub.add_parser("run", help="Evaluate state.json -> JSON")
     p_run.add_argument("state", help="path to state.json")
     p_rep = sub.add_parser("report", help="Evaluate state.json -> Markdown")
@@ -194,7 +200,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = build_parser()
     args = ap.parse_args(argv)
     if args.cmd == "sample":
-        return cmd_sample()
+        return cmd_sample(args.write)
     if args.cmd == "run":
         return cmd_run(args.state)
     if args.cmd == "report":
